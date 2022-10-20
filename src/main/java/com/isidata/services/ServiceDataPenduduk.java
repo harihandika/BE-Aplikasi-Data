@@ -42,4 +42,18 @@ public class ServiceDataPenduduk {
     public List<DataPenduduk> findByName(String name) {
         return dataPendudukRepo.findByNameContains(name);
     }
+
+    public List<DataPenduduk> searchDataPenduduks(String nik, String name) {
+        List<DataPenduduk> datapenduduks = null;
+        // dataPendudukRepo.searchDataPenduduks(query);
+        if (nik != "" && name == "") {
+            datapenduduks = dataPendudukRepo.searchDataPendudukbyNIK(nik);
+        } else if (nik == "" && name != "") {
+            datapenduduks = dataPendudukRepo.searchDataPendudukbyName(name);
+        } else {
+            datapenduduks = dataPendudukRepo.searchDataPendudukbyNIKandName(nik, name);
+        }
+        return datapenduduks;
+    }
+
 }

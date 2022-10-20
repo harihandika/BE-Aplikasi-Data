@@ -10,6 +10,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "tbl_dataPenduduk")
+
 public class DataPenduduk implements Serializable {
 
     @Id
